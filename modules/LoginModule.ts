@@ -1,5 +1,6 @@
 import { Page, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage.js';
+import { Users } from '../data/users.js';
 
 export class LoginModule {
   private page: Page;
@@ -15,9 +16,9 @@ export class LoginModule {
     await this.page.goto(this.url);
   }
 
-  async login(username: string, password: string) {
-    await this.loginPage.usernameField.fill(username);
-    await this.loginPage.passwordField.fill(password);
+  async login(user = Users.validUser) {
+    await this.loginPage.usernameField.fill(user.username);
+    await this.loginPage.passwordField.fill(user.password);
     await this.loginPage.loginButton.click();
   }
 

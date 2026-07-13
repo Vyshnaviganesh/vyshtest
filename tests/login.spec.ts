@@ -17,7 +17,7 @@ vyshtestpractice.describe('Heroku - Login', () => {
     await loginModule.navigate();
     await loginModule.assertOnPage();
 
-    await loginModule.login('tomsmith', 'SuperSecretPassword!');
+    await loginModule.login();
 
     await secureModule.assertOnPage();
 
